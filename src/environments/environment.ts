@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: "https://proxy.cors.sh/https://api.deezer.com"
+  apiBaseUrl: "http://localhost:4200/api"
 };
 
 /*

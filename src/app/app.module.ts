@@ -1,3 +1,4 @@
+import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { ArtistModule } from './components/artist/artist.module';
@@ -10,10 +11,12 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ToolbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -23,11 +26,10 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
     MatIconModule,
     ArtistModule,
     HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   exports: [
-    MatToolbarModule,
-    MatIconModule,
-    ArtistModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

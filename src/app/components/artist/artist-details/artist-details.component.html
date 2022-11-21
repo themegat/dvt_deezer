@@ -15,8 +15,9 @@
   </mat-list>
 </div>
 
-<div *ngIf="$albums | async as albums" class="artis-albums">
+<div *ngIf="$albums | async as albums" class="artist-albums">
   <h2><b>Albums</b></h2>
+  <div class="list">
     <mat-card *ngFor="let album of albums" class="example-card">
       <img mat-card-image [src]="album.cover_medium" [alt]="'Photo of ' + album.title" />
       <mat-card-header>
@@ -24,4 +25,5 @@
         <mat-card-subtitle>{{album.release_date}}</mat-card-subtitle>
       </mat-card-header>
     </mat-card>
+  </div>
 </div>

@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -7,9 +8,20 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 
 export class ToolbarComponent {
-  @Output() searchChanged = new EventEmitter<string>();
+  searchTimeOut: any = null;
 
+  constructor(private router: Router) {
+  }
   textChanged(event: any): void {
-    this.searchChanged.emit(event.target['value']);
+    this.searchForArtist(event.target['value']);
+  }
+
+  searchForArtist(artist: string): void {
+    if (this.searchTimeOut && this.searchTimeOut !== null) {
+      clearTimeout(this.searchTimeOut);
+    }
+    this.searchTimeOut = setTimeout(() => {
+      this.router.navigate(['srch', artist])
+    }, 2000);
   }
 }

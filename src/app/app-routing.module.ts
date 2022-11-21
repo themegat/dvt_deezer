@@ -5,9 +5,9 @@ import { ArtistDetailsComponent } from './components/artist/artist-details/artis
 import { ArtistListComponent } from './components/artist/artist-list/artist-list.component';
 
 const routes: Routes = [
-  { path: "", component: ArtistListComponent },
-  { path: "search", component: ArtistListComponent },
-  { path: "artist/:id", component: ArtistDetailsComponent}
+  // { path: "", component: ArtistListComponent },
+  { path: "srch/:id", component: ArtistListComponent },
+  { path: "arts/:id", component: ArtistDetailsComponent }
 ];
 
 @NgModule({

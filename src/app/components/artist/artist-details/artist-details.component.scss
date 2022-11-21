@@ -6,12 +6,35 @@
   grid-template-columns: 3fr 400px;
   padding: 20px 15px;
 
+  @media screen and (max-width: 600px) {
+    display: block;
+  }
+
   div {
+    @media screen and (max-width: 600px) {
+      display: block;
+    }
+
     display: flex;
     min-width: 500px;
     justify-content: space-between;
-    h1{
+
+    h1 {
       font-size: 40px;
+    }
+  }
+}
+
+.artist-albums {
+  padding: 0 20px;
+
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 19px;
+
+    mat-card {
+      width: 350px;
     }
   }
 }

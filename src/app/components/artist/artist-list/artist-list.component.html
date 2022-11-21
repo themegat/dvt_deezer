@@ -1,9 +1,6 @@
-<app-toolbar (searchChanged)="searchForArtist($event)"></app-toolbar>
 <ng-container *ngIf="data | async as artists">
   <div class="list-container">
-    <a *ngFor="let artist of artists" routerLink="artist">
-      <app-artist-card [artist]="artist">
-      </app-artist-card>
-    </a>
+    <app-artist-card *ngFor="let artist of artists" [artist]="artist" [routerLink]="['/arts', artist.id]">
+    </app-artist-card>
   </div>
 </ng-container>

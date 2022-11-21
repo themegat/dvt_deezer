@@ -1,5 +1,6 @@
+import { ActivatedRoute } from '@angular/router';
 import { ArtistService } from './../services/artist.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Artist } from '../models/artist.model';
 
@@ -8,24 +9,19 @@ import { Artist } from '../models/artist.model';
   templateUrl: './artist-list.component.html',
   styleUrls: ['./artist-list.component.scss']
 })
-export class ArtistListComponent {
-  searchTimeOut: any = null;
+export class ArtistListComponent implements OnInit {
   data = new BehaviorSubject<Artist[]>([]);
 
-  constructor(private artistService: ArtistService) { }
-
-  searchForArtist(artist: string): void {
-    if (this.searchTimeOut && this.searchTimeOut !== null) {
-      clearTimeout(this.searchTimeOut);
-    }
-    this.searchTimeOut = setTimeout(() => {
-      this.artistService.search(artist).subscribe((response) => {
-        this.data.next(response.data);
-      })
-    }, 2000);
+  constructor(private artistService: ArtistService,
+    private route: ActivatedRoute) {
   }
 
-  getLink(artist: Artist): string {
-    return `/artist/${artist.id}`;
+  ngOnInit(): void {
+    var searchvalue = this.route.snapshot.paramMap.get('id');
+    if (searchvalue) {
+      this.artistService.search(searchvalue).subscribe((response) => {
+        this.data.next(response.data);
+      })
+    }
   }
 }

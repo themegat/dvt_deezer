@@ -1,15 +1,19 @@
 .list-container {
-  justify-content: center;
   display: grid;
   gap: 10px;
 
   @media screen and (min-width: 600px) {
     display: flex;
     flex-wrap: wrap;
+    padding: 0 5%;
   }
 
   app-artist-card {
-    max-width: 500px;
-    display: block;
+    width: 280px;
+    display: grid;
+
+    mat-card {
+      justify-content: space-around;
+    }
   }
 }
