@@ -1,0 +1,15 @@
+.list-container {
+  justify-content: center;
+  display: grid;
+  gap: 10px;
+
+  @media screen and (min-width: 600px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  app-artist-card {
+    max-width: 500px;
+    display: block;
+  }
+}

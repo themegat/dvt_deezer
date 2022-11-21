@@ -1,0 +1,27 @@
+<div class="artist-details">
+  <div *ngIf="$artist | async as artist">
+    <h1>{{artist.name}}</h1>
+    <img mat-card-image [src]="artist.picture_medium" [alt]="'Photo of ' + artist.name">
+  </div>
+
+  <mat-list *ngIf="$topTracks | async as topTracks" role="list">
+    <h4><b>Top Tracks</b></h4>
+    <mat-list-item *ngFor="let item of topTracks.data" role="listitem">
+      <label>1.</label>
+      <label>{{item.title}}</label>
+      <label>{{item.duration}}</label>
+    </mat-list-item>
+
+  </mat-list>
+</div>
+
+<div *ngIf="$albums | async as albums" class="artis-albums">
+  <h2><b>Albums</b></h2>
+    <mat-card *ngFor="let album of albums" class="example-card">
+      <img mat-card-image [src]="album.cover_medium" [alt]="'Photo of ' + album.title" />
+      <mat-card-header>
+        <mat-card-title><b>{{album.title}}</b></mat-card-title>
+        <mat-card-subtitle>{{album.release_date}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
+</div>
